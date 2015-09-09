@@ -3,20 +3,32 @@
 
 (def board identity)
 
+(def all-values #{1 2 3 4 5 6 7 8 9})
+
 (defn value-at [board coord]
-  nil)
+  (get-in board coord))
 
 (defn has-value? [board coord]
-  nil)
+  (not= (value-at board coord) 0))
 
 (defn row-values [board coord]
-  nil)
+  (let [[x _] coord]
+    (into #{} (get board x))))
 
 (defn col-values [board coord]
-  nil)
+  (let [[_ y] coord]
+    (reduce (fn [acc row] (conj acc (get row y))) #{} board)))
 
 (defn coord-pairs [coords]
-  nil)
+  (for [x coords
+        y coords]
+    [x y]))
+
+(defn get-top-left-block-coord [coords]
+  (let [x (get coords 0)
+        y (get coords 1)]
+    [(- x (mod x 3))
+     (- y (mod y 3))]))
 
 (defn block-values [board coord]
   nil)
