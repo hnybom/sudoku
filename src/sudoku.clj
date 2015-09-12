@@ -31,7 +31,13 @@
      (- y (mod y 3))]))
 
 (defn block-values [board coord]
-  nil)
+  (let [top-left (get-top-left-block-coord coord)
+        x1 (get top-left 0)
+        y1 (get top-left 1)]
+    (into #{}
+          (for [x (range x1 (+ x1 3))
+                y (range y1 (+ y1 3))]
+            blockblockasdasdasdasdasd(value-at board [x y])))))
 
 (defn valid-values-for [board coord]
   nil)
