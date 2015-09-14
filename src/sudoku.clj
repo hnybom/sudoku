@@ -99,5 +99,29 @@
            (fn [x] (not (has-value? board x)))
          (coord-pairs (range 0 9)))))
 
+(defn solve-helper [board current-solution]
+  (if (filled? current-solution)
+    (if (valid-solution? current-solution)
+      current-solution
+      [])
+    (let [next-coord (find-empty-point current-solution)]
+      (for [canditate (valid-values-for current-solution next-coord)
+            solution (solve-helper board (set-value-at current-solution next-coord canditate))]
+        solution))))
+
 (defn solve [board]
-  nil)
+  (solve-helper board board))
+
+
+(def sudoku-board-test
+  (board [[8 3 0 0 0 7 0 0 5]
+          [0 0 0 0 0 0 2 0 0]
+          [0 4 9 0 0 0 0 6 3]
+          [0 0 0 0 8 0 0 9 6]
+          [0 5 6 0 9 4 0 0 7]
+          [3 0 0 0 0 0 0 0 0]
+          [2 6 0 0 0 0 4 0 0]
+          [0 0 0 0 0 0 0 0 0]
+          [0 0 3 0 4 0 7 0 2]]))
+
+

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ReplState" timestamp="1442138617452">{:repl-history {:ide [], :local [], :remote []}}</component>
+  <component name="ReplState" timestamp="1442255666916">{:repl-history {:ide [], :local [&quot;(use sudoku)&quot; &quot;(use 'sudoku')&quot; &quot;(require sudoku)&quot; &quot;\n(defn get-top-left-block-coord [coords]\n  (let [x (get coords 0)\n        y (get coords 1)]\n    [(- x (mod x 3))\n     (- y (mod y 3))]))&quot; &quot;(get-top-left-block-coord [2 2])&quot; &quot;(get-top-left-block-coord [4 5])&quot; &quot;(range 3 3)&quot; &quot;(range 3 6)&quot; &quot;(range 0 9 3)&quot;], :remote []}}</component>
 </project>
